@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>file_test_http</title>
+    <!--<link href="http://cdn.bootcss.com/bootstrap/4.0.0-alpha.6/css/bootstrap.css" rel="stylesheet">-->
+    <style>
+        body{background: #ccc; color: #fff;}
+    </style>
+</head>
+
+<body>
+	<div>body</div>
+    <div><ul class="list">
+
+    </ul></div>
+    <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.js"></script>
+    <!--<script src="http://cdn.bootcss.com/bootstrap/4.0.0-alpha.6/js/bootstrap.js"></script>-->
+    <script type="text/javascript">
+    	$.ajax({
+    		url: 'http://www.bitonair.com/app/hello',
+    		dataType: 'jsonp',
+    		success: function(ret){
+    		    if(ret){
+    		        var arr = [];
+    		        for(var i in ret){
+    		           arr.push("<li>" + ret[i] + "</li>");
+    		        }
+    		        $(".list").html(arr.join(""));
+    		    }
+    		}
+    	});
+    </script>
+</body>
+
+</html>
